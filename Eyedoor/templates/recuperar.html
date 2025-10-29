@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Contraseña</title>
+  <style>
+    body{background:#0b0b0b;color:#fff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+    .card{background:#121212;padding:30px;border-radius:10px;width:360px;text-align:center;box-shadow:0 0 15px rgba(0,0,0,0.6)}
+    input{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:none;background:#fff;color:#000}
+    button{background:#c0392b;color:#fff;border:none;padding:12px;width:100%;border-radius:8px;font-weight:bold;cursor:pointer}
+    button:hover{background:#e74c3c}
+    a{display:block;margin-top:12px;color:#8ab4ff;text-decoration:none}
+  </style>
+</head>
+<body>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="alert {{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+  <div class="card">
+    <h2>Recuperar Contraseña</h2>
+    <p>Ingresa tu correo y te enviaremos un enlace para restablecerla.</p>
+    <form>
+      <input type="email" placeholder="Correo electrónico" required>
+      <button type="submit">Enviar</button>
+    </form>
+    <a href="{{ url_for('login') }}">Volver al inicio</a>
+  </div>
+</body>
+</html>

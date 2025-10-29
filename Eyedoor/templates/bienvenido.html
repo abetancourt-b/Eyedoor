@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Sensor</title>
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+    <style>
+        body {
+            background-color: #111;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flash-messages {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .alert {
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: white;
+            animation: fadeOut 5s forwards;
+        }
+
+        .alert.success {
+            background-color: #27ae60;
+        }
+
+        .alert.error {
+            background-color: #e74c3c;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { opacity: 0; display: none; }
+        }
+
+        .panel {
+            background-color: #1b1b1b;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            width: 800px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .camera-box {
+            background-color: black;
+            width: 260px;
+            height: 420px;
+            border: 4px solid #222;
+            overflow: hidden;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .camera-placeholder {
+            color: gray;
+            text-align: center;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        button {
+            width: 220px;
+            height: 50px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-mic {
+            background-color: #d62828;
+            color: white;
+        }
+
+        .btn-photo {
+            background-color: #999;
+            color: black;
+        }
+
+        .btn-rec {
+            background-color: #999;
+            color: black;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="panel">
+        <div class="camera-box">
+            <iframe src="URL_DE_LA_CAMARA" width="100%" height="100%" frameborder="0"></iframe>
+            <div class="camera-placeholder">[ Aquí irá el código de la cámara en vivo bro]</div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-mic">🎙️ Encendido</button>
+            <button class="btn-photo">📸 Fotografiar</button>
+            <div class="info">
+                Correo: {{ email }} <br>
+                Código de Producto: {{ product_code }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- Quitar completamente el boton de reconocimineto facial-->
