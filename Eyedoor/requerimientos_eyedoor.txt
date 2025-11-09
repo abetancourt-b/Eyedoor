@@ -1,3 +1,4 @@
 Se necesita instalar en la terminal:
 
-pip install flask firebase-admin werkzeug
+pip install flask firebase-admin werkzeug opencv-python
+
